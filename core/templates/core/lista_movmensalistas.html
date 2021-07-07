@@ -1,0 +1,7 @@
+<h2>Lista MOvimentações de Mensalistas</h2>
+
+<ul>
+{% for mov in mov_mensalistas %}
+    <li>{{mov.mensalista}} - {{mov.dt_pagamento}}</li>
+{% endfor %}    
+</ul>
