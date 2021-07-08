@@ -2,6 +2,20 @@
 
 <ul>
 {% for mov in mov_mensalistas %}
-    <li>{{mov.mensalista}} - {{mov.dt_pagamento}}</li>
+    <li>
+        <a href="{% url 'core_movmensalista_update' mov.id %}">
+            {{mov.mensalista}} - {{mov.dt_pagamento}}</a>
+    </li>
+    <li></li>
 {% endfor %}    
 </ul>
+
+
+<form action="{% url 'core_movmensalista_novo' %}" method="POST">
+    {% csrf_token%}
+
+    {{form.as_p}}
+
+    <button type="submit">Cadastrar</button>
+
+</form>
