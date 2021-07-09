@@ -1,7 +1,7 @@
-<h2>Tem certeza que quer deletar: {{pessoa}}</h2>
+<h2>Tem certeza que quer deletar: {{obj}}</h2>
 
 
-<form action="{% url 'core_pessoa_delete' pessoa.id %}" method="POST">
+<form  method="POST">
 
     {% csrf_token%}
 
