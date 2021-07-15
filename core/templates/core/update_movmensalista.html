@@ -1,14 +1,21 @@
-<h2>Alteração Mensalista: {{movmensalista}}</h2>
+{% extends 'base.html' %}
+
+{% block main %}
+
+    <h2>Alteração Mensalista: {{movmensalista}}</h2>
 
 
-<form action="{% url 'core_movmensalista_update' movmensalista.id %}" method="POST">
+    <form action="{% url 'core_movmensalista_update' movmensalista.id %}" method="POST">
 
-    {% csrf_token%}
+        {% csrf_token%}
 
-    {{form.as_p}}
+        {{form.as_p}}
 
-    <button type="submit">Salvar</button>
+        <button type="submit">Salvar</button>
 
-</form>
+    </form>
 
-<a href="{% url 'core_movmensalista_delete' movmensalista.id %}">Deletar</a>
+    <a href="{% url 'core_movmensalista_delete' movmensalista.id %}">Deletar</a>
+
+
+{%endblock%}

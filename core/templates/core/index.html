@@ -1,1 +1,38 @@
-{{mensagem}}
+{% extends 'base.html'%}
+    
+{% block menu %}
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'core_home' %}">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Serviços</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'core_lista_pessoas' %}">Pessoas</a></li>
+            <li><a class="dropdown-item" href="{% url 'core_lista_veiculos' %}">Veiculos</a></li>
+            <li><a class="dropdown-item" href="{% url 'core_lista_movrotativos' %}">Rotativo</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{% url 'core_lista_mensalista' %}">Mensalista</a></li>
+        </ul>
+        {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link disabled" href="">Ola, {{ user }}</a>
+            </li>
+    
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>    
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+        {% endif %}
+    </ul>
+{% endblock %}
+{% block main %}
+    <div class="row">
+        <div class="col">
+            <h1>Seja bem vindo ao sistema</h1>
+        </div>
+    </div>
+{% endblock %}

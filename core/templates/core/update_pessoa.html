@@ -1,14 +1,22 @@
-<h2>Alteração Pessoa: {{pessoa}}</h2>
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block main %}
 
+<div class="row">
+    <div class="col-12">
+        <h2>Alteração Pessoa: {{pessoa}}</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <form action="{% url 'core_pessoa_update' pessoa.id %}" method="POST">
+            {% csrf_token%}
+            {{form|bootstrap}}
+            <br>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a href="{% url 'core_pessoa_delete' pessoa.id %}" class="btn btn-danger">Deletar</a>
+        </form>
+    </div>
+</div>
 
-<form action="{% url 'core_pessoa_update' pessoa.id %}" method="POST">
-
-    {% csrf_token%}
-
-    {{form.as_p}}
-
-    <button type="submit">Salvar</button>
-
-</form>
-
-<a href="{% url 'core_pessoa_delete' pessoa.id %}">Deletar</a>
+{% endblock %}
