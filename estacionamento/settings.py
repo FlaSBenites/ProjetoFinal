@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrapform',
     'core',
+    'website',
 ]
 
 MIDDLEWARE = [
@@ -131,6 +132,6 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = 'core_home'
+LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'core_home'
 LOGOUT_REDIRECT_URL = 'core_home'

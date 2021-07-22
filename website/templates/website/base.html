@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>website</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                 <h1>Estacionamento 24 horas</h1>
+                 <span>O melhor para vc e seu carro!</span>
+            </div>
+            <div class="col-6">
+                <img src="{% static 'img/logo.jpg'%}" alt="Estacionamento 24 horas">
+            </div>
+        </div>
+        {% block menu %}
+            {% include 'website/menu.html' %}
+        {% endblock %}
+               
+        {% block main %}
+        {% endblock %}
+
+        {% include 'website/footer.html' %}
+    </div>    
+</body>
+</html>
